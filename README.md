@@ -52,6 +52,7 @@ class User < ActiveRecord::Base
 
   has_many :relations
   has_many :groups, through: :relations
+  has_many :messages
 ```
 
 ```ruby:group.rb
@@ -59,6 +60,7 @@ class Group < ActiveRecord::Base
 
   has_many :relations
   has_many :users, through: :relations
+  has_many :messages
 ```
 
 ```ruby:relation.rb

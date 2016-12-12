@@ -8,44 +8,36 @@
 
 **ユーザーとグループの関係が多対多であるので，中間テーブル(relations)を使う**
 
-messagesテーブル
+-  messagesテーブル
+
+```ruby:migrationファイル
+t.text :body, null: false
+t.string :image
+t.references :user, foreign_key: true, null: false
+t.references :group, foreign_key: true, null: false
+t.timestamps null: false
+```
 
 
-| column      | type     |
-|:-----------:|:--------:|
-| body        |  text    |
-| image       |  string  |
-| group_id    |  integer |
-| user_id     |  integer |
+```ruby:message.rb
+class Message < ActiveRecord::Base
+
+  belongs_to :users
+  belongs_to :groups
+```
 
 
-usersテーブル
-※deviseに従う
+
+- usersテーブル
 
 
-| column      | type     | remarks  |
-|:-----------:|:--------:|:--------:|
-| name        |  string  | null :false |
-| email       |  string  | null :false, unique :true|
-| password    |  integer | null :false  |
-
-
-groupsテーブル
-
-
-| column      | type     |
-|:-----------:|:--------:|
-| group_name  |  string  |
-
-
-relationsテーブル
-
-
-| column      | type     |
-|:-----------:|:--------:|
-| user_id     |  integer |
-| group_id    |  integer |
-
+```ruby:migrationファイル
+t.string :name, null :false, unique: true
+add_index :users, :name
+t.string :email, null :false, unique: true
+add_index :users, :email
+t.timestamps :null false
+```
 
 ```ruby:user.rb
 class User < ActiveRecord::Base
@@ -53,6 +45,14 @@ class User < ActiveRecord::Base
   has_many :relations
   has_many :groups, through: :relations
   has_many :messages
+```
+
+
+
+- groupsテーブル
+
+```ruby:migrationファイル
+t.string :group_name, null: false
 ```
 
 ```ruby:group.rb
@@ -63,6 +63,17 @@ class Group < ActiveRecord::Base
   has_many :messages
 ```
 
+
+
+- relationsテーブル
+
+
+```ruby:migrationファイル
+t.references :user, foreign_key: true, null: false
+t.references :group, foreign_key: true, null: false
+```
+
+
 ```ruby:relation.rb
 class Relation < ActiveRecord::Base
 
@@ -70,9 +81,4 @@ class Relation < ActiveRecord::Base
   belongs_to :groups
 ```
 
-```ruby:message.rb
-class Message < ActiveRecord::Base
 
-  belongs_to :users
-  belongs_to :groups
-```

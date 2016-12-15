@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-get 'messages' => 'messages#index'
+  root 'messaages#index'
+resources :messages, only: [:index]
 end

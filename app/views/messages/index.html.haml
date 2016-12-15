@@ -5,9 +5,9 @@
     .chat-user.clearfix
       %h5 ユーザー名
       .chat-user__actions
-        %a.chat-user__action(href="")
+        = link_to "", class: "chat-user__action" do
           %i.fa.fa-pencil-square-o
-        %a.chat-user__action(href="")
+        = link_to "", class: "chat-user__action" do
           %i.fa.fa-cog
     %ul.chat-groups
       %li.chat-group

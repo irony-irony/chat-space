@@ -1,7 +1,8 @@
 .chat.clearfix
   .chat-side
     .chat-user.clearfix
-      %h5 ユーザー名
+      %h5
+        = current_user.name
       .chat-user__actions
         = link_to "", class: "chat-user__action" do
           %i.fa.fa-pencil-square-o

@@ -11,3 +11,9 @@
 /log/*
 !/log/.keep
 /tmp
+
+app/assets/javascripts/users.coffee
+
+app/assets/stylesheets/users.scss
+
+app/helpers/users_helper.rb

@@ -5,8 +5,16 @@
 @import "./messages.scss";
 @import "./user.scss";
 
-.alert {
+.alert-notice {
   color: #FFFFFF;
   background-color: #38AEF0;
   text-align: center;
 }
+
+.alert-alert {
+  color: #FFFFFF;
+  background-color: red;
+  text-align: center;
+}
+
+

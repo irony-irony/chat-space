@@ -1,17 +1,18 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!, only: :new
   def new
-    @group = Group.new()
-    @group.group_users.build
+    @group = Group.new
   end
 
   def create
-    Group.create(group_params)
-    redirect_to controller: :messages, action: :index
+    @group = Group.create(group_params)
+    if @group.save
+      redirect_to root_path, notice: "グループが保存されました"
+    end
   end
 
   def edit
-
+    @group = Group.find(params[:id])
   end
 
   def update

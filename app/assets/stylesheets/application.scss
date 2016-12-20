@@ -1,21 +1,9 @@
 @import "./reset";
 @import "variable";
+@o,port "alert";
 @import "font-awesome";
 @import "font-awesome-sprockets";
 @import "./messages.scss";
 @import "./user.scss";
 @import "./group.scss";
-
-.alert-notice {
-  color: #FFFFFF;
-  background-color: #38AEF0;
-  text-align: center;
-}
-
-.alert-alert {
-  color: #FFFFFF;
-  background-color: red;
-  text-align: center;
-}
-
 

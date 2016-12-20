@@ -1,5 +1,4 @@
 .chat-group-form
   %h1 新規チャットグループ
-  = form_for @group, url: groups_path, html: {class: "new_chat_group", id: "new_chat_group"} do |f|
-    = render partial: 'group', locals: { f: f }
+  = render partial: 'form'
 

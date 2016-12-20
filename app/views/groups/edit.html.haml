@@ -1,6 +1,5 @@
 .chat-group-form
   %h1 チャットグループ編集
-  = form_for @group, url: edit_group_path(@group.id), html: {class: "edit_chat_group", id: "edit_chat_group_@group.id"} do |f|
-    = render partial: 'group', locals: { f: f }
+  = render partial: 'form'
 
 

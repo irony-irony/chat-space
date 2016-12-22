@@ -6,8 +6,8 @@
         %h2= @group.group_name
         %p.chat-header__users
           Members:
-          - @group.users.each do |member|
-            %span.chat-header__user= member.name
+          - @group.users.each do |user|
+            %span.chat-header__user= user.name
       .chat-header--right
         = link_to 'Edit', edit_group_path(@group), class: "chat-header__edit-btn"
     .chat-body

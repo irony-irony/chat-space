@@ -62,19 +62,23 @@ h5 {
 
 
 .chat-group {
-  padding: 20px;
-  color: $fontcolor;
+    padding: 20px;
 
   &:hover{
   background-color: #4e6a8e;
   }
 
-   &__name {
-    font-size: 15px;
-    margin-bottom: 5px;
-  }
-    &__message {
-     font-size: 11px;
+  &__link{
+    color: $fontcolor;
+    text-decoration: none;
+
+     &__name {
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+      &__message {
+       font-size: 11px;
+    }
   }
 }
 
@@ -125,6 +129,7 @@ h5 {
           color: #38aef0;
           font-size: 14px;
           border: 2px solid;
+          text-decoration: none;
         }
     }
 }

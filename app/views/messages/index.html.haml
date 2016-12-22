@@ -1,29 +1,15 @@
 .chat.clearfix
-  .chat-side
-    .chat-user.clearfix
-      %h5
-        = current_user.name
-      .chat-user__actions
-        = link_to "", class: "chat-user__action" do
-          %i.fa.fa-pencil-square-o
-        = link_to edit_user_registration_path, class: "chat-user__action" do
-          %i.fa.fa-cog
-    %ul.chat-groups
-      %li.chat-group
-        %p.chat-group__name グループ1
-        %p.chat-group__message ほげほげ
-      %li.chat-group
-        %p.chat-group__name グループ2
-        %p.chat-group__message ふがふが
+  = render partial: 'share/index'
   .chat-main
     .chat-header.clearfix
       .chat-header--left
-        %h2 グループ1
-        %p.chat-header__users<>
+        %h2= @group.group_name
+        %p.chat-header__users
           Members:
-          %span.chat-header__user ユーザ1，ユーザー2
+          - @group.users.each do |user|
+            %span.chat-header__user= user.name
       .chat-header--right
-        %a.chat-header__edit-btn(href="")Edit
+        = link_to 'Edit', edit_group_path(@group), class: "chat-header__edit-btn"
     .chat-body
       %ul.chat-messages
         %li.chat-message
@@ -38,3 +24,4 @@
           %label.chat-footer__image
             %i.fa.fa-image
         %input{:type => "submit", :value => "send"}
+

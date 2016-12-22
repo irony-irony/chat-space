@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
 
   def after_sign_in_path_for(resources)#サインした後のリダイレクと先の指定
-    '/messages/'
+    '/groups/'
   end
 
   def after_sign_out_path_for(resource) #サインアウトした後のリダイレクト先の指定

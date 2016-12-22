@@ -53,6 +53,10 @@
     .chat-group-form__field--right {
       float: right;
       width: 70%;
+
+        &__name{
+        width: 100%;
+        }
     }
 
     .chat-group-form__label {

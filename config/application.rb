@@ -12,6 +12,9 @@ module ChatSpace
 
     config.generators do |g|
     g.test_framework :false
+    g.helper false
+    g.assets false
+    g.javascripst false
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

@@ -2,8 +2,8 @@
   width: 980px;
   margin: 60px auto;
   padding: 40px;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: $fontcolor;
+  border: 1px solid $borderline;
   border-radius: 5px;
   box-sizing: border-box;
 
@@ -16,13 +16,14 @@
   .chat-group-form__errors {
     margin: 30px 0;
     padding: 20px 40px;
-    border: 1px solid #ddd;
+    border: 1px solid $borderline;
     border-radius: 2px;
     text-align: center;
+  }
 
     h2 {
       margin-bottom: 10px;
-      color: #f05050;
+      color: $caution;
       font-size: 14px;
     }
 
@@ -30,12 +31,10 @@
       margin: 0;
       padding: 0;
       list-style: none;
-    }
 
-    li {
-      margin: 0;
-      padding: 0;
-      font-size: 13px;
+      &>li {
+        font-size: 13px;
+      }
     }
   }
 
@@ -53,7 +52,6 @@
     .chat-group-form__field--right {
       float: right;
       width: 70%;
-
         &__name{
         width: 100%;
         }
@@ -79,7 +77,7 @@
     padding: 0 15px;
     line-height: 50px;
     font-size: 14px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid $borderline;
 
     .chat-group-user__name {
       float: left;
@@ -91,11 +89,11 @@
       cursor: pointer;
 
       &.chat-group-user__btn--add {
-        color: #38aef0;
+        color: $notice;
       }
 
       &.chat-group-user__btn--remove {
-        color: #f05050;
+        color: $notice;
       }
     }
   }
@@ -103,8 +101,8 @@
   .chat-group-form__action-btn {
     display: inline-block;
     padding: 12px 20px;
-    color: #fff;
-    background-color: #38aef0;
+    color: $fontcolor;
+    background-color: $notice;
     border: none;
   }
 }

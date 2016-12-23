@@ -12,11 +12,12 @@
         = link_to 'Edit', edit_group_path(@group), class: "chat-header__edit-btn"
     .chat-body
       %ul.chat-messages
-        %li.chat-message
-          .chat-mssage__header.clearfix
-            %p.chat-message__name ユーザー1
-            %p.chat-message__time 2012/12/12 12:12:12
-          %p.chat-message__body ほげほげ
+        - @group.messages.each do |message|
+          %li.chat-message
+            .chat-mssage__header.clearfix
+              %p.chat-message__name= message.user.name
+              %p.chat-message__time= message.created_at
+            %p.chat-message__body= message.body
     .chat-footer
       = form_for [@group, @message], html:{class: "new_message"} do |f|
         .chat-footer__body

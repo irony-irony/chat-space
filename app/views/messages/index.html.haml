@@ -18,10 +18,10 @@
             %p.chat-message__time 2012/12/12 12:12:12
           %p.chat-message__body ほげほげ
     .chat-footer
-      %form#new_message.new_message
+      = form_for [@group, @message], html:{class: "new_message"} do |f|
         .chat-footer__body
-          %textarea#message_body{rows: "1", :name => "message[body]",  :placeholder => "type a message"}
+          = f.text_area :body, placeholder: "type a message",rows: "1", class: "message_body"
           %label.chat-footer__image
             %i.fa.fa-image
-        %input{:type => "submit", :value => "send"}
-
+            =f.file_field :image, class: 'file_attach'
+        = f.submit "SEND", class: "sending"

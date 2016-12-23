@@ -19,7 +19,7 @@
               %p.chat-message__time= message.created_at.strftime("%Y-%m-%d %H:%M:%S")
             %p.chat-message__body= message.body
     .chat-footer
-      = form_for [@group, @message], html:{class: "new_message"} do |f|
+      = form_for [@group, @message], class: "new_message" do |f|
         .chat-footer__body
           = f.text_area :body, placeholder: "type a message", rows: "1", class: "message_body"
           %label.chat-footer__image

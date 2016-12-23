@@ -21,7 +21,7 @@
     .chat-footer
       = form_for [@group, @message], html:{class: "new_message"} do |f|
         .chat-footer__body
-          = f.text_area :body, placeholder: "type a message",rows: "1", class: "message_body"
+          = f.text_area :body, placeholder: "type a message", rows: "1", class: "message_body"
           %label.chat-footer__image
             %i.fa.fa-image
             =f.file_field :image, class: 'file_attach'

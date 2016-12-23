@@ -7,8 +7,11 @@ class MessagesController < ApplicationController
   end
 
   def create
-    Message.create(message_params)
+    @message = Message.create(message_params)
     redirect_to group_messages_path(params[:group_id])
+    if @message.body.empty?
+      flash[:alert] = "何か入力してください"
+    end
   end
 
   private

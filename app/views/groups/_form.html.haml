@@ -6,8 +6,6 @@
     %ul
       - if @group.group_name.empty?
         %li グループ名を入力してください
-      - if @group.user_ids.empty?
-        %li 最低1名選択してください
 = form_for @group, html: {class: "new_chat_group", id: "new_chat_group"} do |f|
   .chat-group-form__field.clearfix
     .chat-group-form__field--left

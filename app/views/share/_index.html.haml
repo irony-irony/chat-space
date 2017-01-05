@@ -8,7 +8,7 @@
       = link_to edit_user_registration_path, class: "chat-user__action" do
         %i.fa.fa-cog
   %ul.chat-groups
-    - @groups.each do |group|
+    - current_user.groups.each do |group|
       %li.chat-group
         = link_to group_messages_path(group.id), class: "chat-group__link" do
           %p.chat-group__name= group.group_name

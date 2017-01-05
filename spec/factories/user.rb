@@ -5,7 +5,7 @@ FactoryGirl.define do
     email   { Faker::Internet.email }
     password              "password"
     password_confirmation  "password"
-    created_at            { Faker::Time.between(DateTime.now - 1, DateTime.now) }
-    updated_at            { Faker::Time.between(DateTime.now - 1, DateTime.now) }
+    created_at            { Faker::Time.between(DateTime.yesterday - 1, DateTime.yesterday) }
+    updated_at            { Faker::Time.between(DateTime.yesterday - 1, DateTime.yesterday) }
   end
 end

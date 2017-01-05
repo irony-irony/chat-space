@@ -36,22 +36,21 @@ describe MessagesController do
     let(:message) { build(:message) }
     let(:params_invalid) { build(:message, body: nil) }
 
-    it "saves the new message in the database" do
-      expect{
-        post :create, group_id: group.id, message: attributes_for(:message)
-      }.to change(Message, :count).by(1)
-    end
+      it "saves the new message in the database" do
+        expect{
+          post :create, group_id: group.id, message: attributes_for(:message)
+        }.to change(Message, :count).by(1)
+      end
 
-    it "cannot save a new message in the database without any body" do
-      expect{
-        post :create, group_id: group.id, message: attributes_for(:params_invalid)
-      }.not_to change(Message, :count)
-    end
+      it "cannot save a new message in the database without any body" do
+        expect{
+          post :create, group_id: group.id, message: attributes_for(:params_invalid)
+        }.not_to change(Message, :count)
+      end
 
-    it "redirects to message#index" do
-      post :create, group_id: group.id, message: attributes_for(:message)
-      expect(response).to redirect_to group_messages_path(group)
-    end
+      it "redirects to message#index" do
+          post :create, group_id: group.id, message: attributes_for(:message)
+          expect(response).to redirect_to group_messages_path(group)
+      end
   end
 end
-

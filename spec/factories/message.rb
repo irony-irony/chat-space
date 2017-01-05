@@ -1,10 +1,10 @@
 FactoryGirl.define do
 
   factory :message do
-    body                  {Faker::Lorem.sentence}
-    image                 "image.pnp"
-    created_at            "2016-12-24 11:11:11"
-    updated_at            "2016-12-24 11:11:11"
+    body                  { Faker::Lorem.sentence }
+    image                 { Faker::Avatar.image }
+    created_at            { Faker::Time.between(DateTime.now - 1, DateTime.now) }
+    updated_at            { Faker::Time.between(DateTime.now - 1, DateTime.now) }
   end
 
   factory :params_invalid, class: Message do

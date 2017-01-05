@@ -1,8 +1,8 @@
 FactoryGirl.define do
 
   factory :group do
-    group_name            "グループ1"
-    created_at            "2016-12-24 11:11:11"
-    updated_at            "2016-12-24 11:11:11"
+    group_name  { Faker::Team.state }
+    created_at  { Faker::Time.between(DateTime.now - 1, DateTime.now) }
+    updated_at  { Faker::Time.between(DateTime.now - 1, DateTime.now) }
   end
 end

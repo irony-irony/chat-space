@@ -18,14 +18,13 @@ describe MessagesController do
     end
 
     it "assigns the requested to @message" do
-      get :index,params: {group_id: group.id}
+      get :index, params: { group_id: group.id }
       expect(assigns(:message)).to be_a_new(Message)
     end
 
     it "assigns the requested to @group" do
-      @group = Group.find(group.id)
-      get :index,params: {group_id: group.id}
-      expect(assigns(:group)).to eq @group
+      get :index, params: { group_id: group.id }
+      expect(assigns(:group)).to eq group
     end
 
     it "render the index template " do
@@ -34,8 +33,8 @@ describe MessagesController do
   end
 
   describe "POST #create" do
-    let(:message){build(:message)}
-    let(:params_invalid){build(:message, body: nil)}
+    let(:message) { build(:message) }
+    let(:params_invalid) { build(:message, body: nil) }
 
       it "saves the new message in the database" do
         expect{

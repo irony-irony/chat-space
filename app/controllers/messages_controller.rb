@@ -9,13 +9,15 @@ class MessagesController < ApplicationController
     if @message.save
       respond_to do |format|
         format.html { redirect_to group_messages_path, notice: "メッセージが送信されました" }
-        format.json { render json: @message}
+        format.json { render json: {
+            name: current_user.name,
+            time: @message.created_at.strftime("%Y-%m-%d %H:%M:%S"),
+            body: @message.body
+          }
+        }
       end
     else
-      respond_to do |format|
-        format.html { redirect_to group_messages_path, alert: "メッセージが送信できませんでした" }
-        format.json { render json: { alert: 'error'} }
-      end
+      redirect_to group_messages_path, alert: "メッセージが送信できませんでした"
     end
   end
 

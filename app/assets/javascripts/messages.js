@@ -1,14 +1,11 @@
 $(function(){
   function buildHTML(data) {
-    var name = $('h5').text();
-    var time = data.created_at;
-    var body = data.body;
     var html =  '<li class = "chat-message">'+
                 '<div class = "chat-message__header clearfix">'+
-                '<p class = "chat-message__name">'+name+
-                '</p><p class = "chat-message__time">'+time+
+                '<p class = "chat-message__name">'+data.name+
+                '</p><p class = "chat-message__time">'+data.time+
                 '</p></div>'+
-                '<p class = "chat-message__body">'+body+
+                '<p class = "chat-message__body">'+data.body+
                 '</p></li>';
     return html;
   }

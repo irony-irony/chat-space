@@ -5,12 +5,19 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.create(message_params)
-    redirect_to group_messages_path(params[:group_id])
+    @message = Message.new (message_params)
     if @message.save
-      flash[:notice] = "メッセージが送信されました"
+      respond_to do |format|
+        format.html { redirect_to group_messages_path }
+        format.json { render json: {
+            name: current_user.name,
+            time: @message.created_at.to_formatted_s(:datetime),
+            body: @message.body,
+          }
+        }
+      end
     else
-      flash[:alert] = "空欄のままでは送信できません"
+      redirect_to group_messages_path, alert: "メッセージが送信できませんでした"
     end
   end
 

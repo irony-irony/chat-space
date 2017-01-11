@@ -9,15 +9,24 @@
 = form_for @group, html: {class: "new_chat_group", id: "new_chat_group"} do |f|
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
-      = f.label :group_name, "グループ名"
+      .chat-group-form__label グループ名
     .chat-group-form__field--right
-      = f.text_field :group_name, placeholder: "グループ名を入力してください", class: "chat-group-form__field--right__name"
+      = f.text_field :group_name, placeholder: "グループ名を入力してください", class: "chat-group-form__input"
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
-      = f.label :name, "チャットメンバー"
+      .chat-group-form__label チャットメンバーを追加
     .chat-group-form__field--right
-      = f.collection_check_boxes(:user_ids, User.all, :id, :name) do |b|
-        = b.label { b.check_box + b.text }
+      .chat-group-form__search.clearfix
+        %input#user-search-field.chat-group-form__input{ placeholder: "追加したいユーザー名を入力してください" }
+      #user-search-result
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      .chat-group-form__label チャットメンバー
+    .chat-group-form__field--right
+      #chat-group-users
+        #chat-group-user.chat-group-user.clearfix
+          = f.hidden_field :user_ids, value: current_user.id, multiple: true
+          %p.chat-group-user__name= current_user.name
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right

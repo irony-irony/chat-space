@@ -79,11 +79,11 @@
     font-size: 14px;
     border-bottom: 1px solid $borderline;
 
-    .chat-group-user__name {
+    &__name {
       float: left;
     }
 
-    .chat-group-user__btn {
+    &__btn {
       float: right;
       display: inline-block;
       cursor: pointer;

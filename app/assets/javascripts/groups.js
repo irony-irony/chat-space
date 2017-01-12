@@ -16,7 +16,7 @@ $(function(){
    }
 
    // ADD-GROUP-MEMBER
-   function addUser(id, name){
+   function groupMember(id, name){
      var html = '<div class="chat-group-user clearfix" id="chat-group-user-' + id + '">' +
      '<input type="hidden" name="group[user_ids][]" value="' + id + '">' +
      '<p class="chat-group-user__name">' + name + '</p>' +
@@ -58,7 +58,7 @@ $(function(){
      var id = $(this).attr('data-user-id');
      var name = $(this).attr('data-user-name');
      $(this).parent().hide();
-     var html = addUser(id, name);
+     var html = groupMember(id, name);
      $('#chat-group-users').append(html);
    });
 

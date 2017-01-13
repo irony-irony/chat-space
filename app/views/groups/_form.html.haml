@@ -27,6 +27,12 @@
         #chat-group-user.chat-group-user.clearfix
           = f.hidden_field :user_ids, value: current_user.id, multiple: true
           %p.chat-group-user__name= current_user.name
+        - @group.users.each do |user|
+          - unless user.id == current_user.id
+            .chat-group-user.clearfix
+              = f.hidden_field :user_ids, value: current_user.id, multiple: true
+              %p.chat-group-user__name= user.name
+              %a.user-search-remove.chat-group-user__btn.chat-group-user__btn--remove{ 'data-user-id': user.id } 削除
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right

@@ -58,5 +58,5 @@ gem 'font-awesome-sass'
 gem "font-awesome-rails"
 gem 'devise'
 gem 'carrierwave'
-
+gem 'fog'
 

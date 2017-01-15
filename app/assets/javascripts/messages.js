@@ -1,7 +1,7 @@
 $(function(){
   function buildHTML(data) {
-    if (message.image) {
-      var insertImage = '<br><img src="' + message.image + '">';
+    if (data.image) {
+      var insertImage = '<br><img src="' + data.image + '">';
       } else {
       var insertImage = '';
       }

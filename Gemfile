@@ -59,4 +59,6 @@ gem "font-awesome-rails"
 gem 'devise'
 gem 'carrierwave'
 gem 'fog'
+gem 'pry-rails'
+
 

@@ -2,6 +2,23 @@ class MessagesController < ApplicationController
   def index
     @group = Group.find(params[:group_id])
     @message = Message.new
+    @messages = Message.includes(:user).where(group_id: params[:group_id])
+
+    respond_to do|format|
+      format.html { }
+      format.json {
+
+        msg_array = []
+        @messages.each do |message|
+          msg_array << {
+          name: message.user.name,
+          time: message.created_at.to_formatted_s(:datetime),
+          body: message.body,
+          image: message.image.url
+        } end
+        render json: { db: msg_array }
+      }
+    end
   end
 
   def create
@@ -9,12 +26,7 @@ class MessagesController < ApplicationController
     if @message.save
       respond_to do |format|
         format.html { redirect_to group_messages_path }
-        format.json { render json: {
-            name: current_user.name,
-            time: @message.created_at.to_formatted_s(:datetime),
-            body: @message.body,
-          }
-        }
+        format.json { render json: @message.api_json }
       end
     else
       redirect_to group_messages_path, alert: "メッセージが送信できませんでした"

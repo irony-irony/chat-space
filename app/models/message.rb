@@ -4,5 +4,14 @@ class Message < ApplicationRecord
   belongs_to :group
 
   mount_uploader :image, ImagesUploader
+
+  def api_json
+    {
+      name: user.name,
+      body: body,
+      time: created_at.to_formatted_s(:datetime),
+      image: image.url
+    }
+  end
 end
 

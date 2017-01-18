@@ -20,7 +20,7 @@
             %p.chat-message__body= message.body
             - if message.image?
               %br
-              = image_tag message.image
+              = image_tag message.image.url
     .chat-footer
       = form_for [@group, @message], class: "new_message" do |f|
         .chat-footer__body

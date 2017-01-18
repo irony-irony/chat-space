@@ -61,4 +61,7 @@ gem 'carrierwave'
 gem 'fog'
 gem 'pry-rails'
 
+group :production do
+  gem 'unicorn'
+end
 

@@ -66,6 +66,10 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    dotenv (2.1.2)
+    dotenv-rails (2.1.2)
+      dotenv (= 2.1.2)
+      railties (>= 3.2, < 5.1)
     erb2haml (0.1.5)
       html2haml
     erubis (2.7.0)
@@ -374,6 +378,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.1.0)
   devise
+  dotenv-rails
   erb2haml
   factory_girl_rails (~> 4.4.1)
   faker

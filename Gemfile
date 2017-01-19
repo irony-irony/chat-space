@@ -60,6 +60,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'fog'
 gem 'pry-rails'
+gem 'dotenv-rails'
 
 group :production do
   gem 'unicorn'
